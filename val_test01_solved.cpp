@@ -87,7 +87,8 @@ void f ( int n )
      We should use malloc/free or new/delete to apply and release memory.
      Using malloc/delete is a mismatch.
   */
-  delete [] x;
+  free(x);
+  x = NULL;
 
   return;
 }
