@@ -80,10 +80,9 @@ void junk_data ( )
 //
 
   /*
-   * WRONG
-   * x[5] - x[9] are uninitialized but are being used by other code
+   * Initialize all the data to solve the problem
    */
-  for ( i = 0; i < 5; i++ )
+  for ( i = 0; i < 10; i++ )
   {
     x[i] = i;
   }

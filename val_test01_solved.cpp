@@ -83,9 +83,8 @@ void f ( int n )
     cout << "  " << i << "  " << x[i] << "\n";
   }
 
-  /* WRONG
-     We should use malloc/free or new/delete to apply and release memory.
-     Using malloc/delete is a mismatch.
+  /*
+   * Use free instead of delete [] to solve the problem
   */
   free(x);
   x = NULL;
