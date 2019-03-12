@@ -5,7 +5,7 @@
 #include <omp.h>
 #include "utils.h"
 
-#define BLOCK_SIZE 12
+#define BLOCK_SIZE 16
 
 
 // Note: matrices are stored in column major order; i.e. the array elements in
