@@ -47,6 +47,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
     if(cnt > len){
       curOff++;
       cnt = 0;
+      printf("curOff is %d", curOff);
     }
     prefix_sum[i] += offsets[curOff];
   }
