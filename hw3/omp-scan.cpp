@@ -20,6 +20,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
   prefix_sum[0] = 0;
   long offsets[N_THREAD + 1];
   long len = n / N_THREAD;
+  printf("start");
   #pragma omp parallel num_threads(N_THREAD)
   {
     int id = omp_get_thread_num();
