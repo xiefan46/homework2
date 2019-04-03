@@ -30,7 +30,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
       prefix_sum[i] = prefix_sum[i - 1] + A[i - 1];
     }
     offsets[id + 1] = prefix_sum[endIdx];
-
+    printf(id);
   }
   #pragma omp barrier
   offsets[0] = 0;
