@@ -72,8 +72,8 @@ int main() {
   long err = 0;
   for (long i = 0; i < N; i++){
     err = std::max(err, std::abs(B0[i] - B1[i]));
-    if(err > 1)
-      printf("error idx : %ld", i);
+    if(std::abs(B0[i] - B1[i]) > 1)
+      printf("error idx : %ld\n", i);
   }
 
   printf("error = %ld\n", err);
