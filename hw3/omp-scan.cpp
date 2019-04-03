@@ -20,7 +20,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
   prefix_sum[0] = 0;
   long offsets[N_THREAD + 1];
   long len = n / N_THREAD;
-  printf("start");
+  printf("start\n");
   #pragma omp parallel num_threads(N_THREAD)
   {
     int id = omp_get_thread_num();
@@ -31,12 +31,15 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
       prefix_sum[i] = prefix_sum[i - 1] + A[i - 1];
     }
     offsets[id + 1] = prefix_sum[endIdx];
-    printf("%d", id);
+    printf("id :  %d\n", id);
   }
   #pragma omp barrier
   offsets[0] = 0;
-  for(int i = 1; i <= N_THREAD; i++)
+  for(int i = 1; i <= N_THREAD; i++){
     offsets[i] += offsets[i - 1];
+    printf("offset %d is %ld", i, offsets[i]);
+  }
+
   int curOff = 0;
   int cnt = 0;
   for(int i = 1; i < n ; i++){
