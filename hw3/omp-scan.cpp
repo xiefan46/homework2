@@ -15,6 +15,37 @@ void scan_seq(long* prefix_sum, const long* A, long n) {
 
 void scan_omp(long* prefix_sum, const long* A, long n) {
   // TODO: implement multi-threaded OpenMP scan
+  const int N_THREAD = 8;
+  prefix_sum[0] = 0;
+  long offsets[N_THREAD];
+  long len = n / N_THREAD;
+  #pragma omp parallel num_threads(N_THREAD)
+  {
+    int id = omp_get_thread_num();
+    long startIdx = id * len + 1;
+    long endIdx = id == N_THREAD - 1 ? n - 1 : startIdx + len - 1;
+    prefix_sum[startIdx] = A[startIdx - 1];
+    for(long i = startIdx + 1; i <= endIdx; i++){
+      prefix_sum[i] = prefix_sum[i - 1] + A[i - 1];
+    }
+    offsets[id] = prefix_sum[endIdx];
+
+  }
+  #pragma omp barrier
+  offsets[0] = 0;
+  for(int i = 1; i < N_THREAD; i++)
+    offsets[i] += offsets[i - 1];
+  int curOff = 0;
+  int cnt = 0;
+  for(int i = 1; i < n ; i++){
+    cnt++;
+    if(cnt > len){
+      curOff++;
+      cnt = 0;
+    }
+    prefix_sum[i] += offsets[curOff];
+  }
+
 }
 
 int main() {
