@@ -73,13 +73,13 @@ int main() {
   for (long i = 0; i < N; i++) err = std::max(err, std::abs(B0[i] - B1[i]));
   printf("error = %ld\n", err);
 
-  /*for(int i = 0; i < 10; i++){
+  for(long i = n - 1; i >= n - 10; i--){
     printf("B0 %ld\n", B0[i]);
   }
 
-  for(int i = 0; i < 10; i++){
+  for(long i = n - 1; i >= n - 10; i--){
     printf("B1 %ld\n", B1[i]);
-  }*/
+  }
 
   free(A);
   free(B0);
