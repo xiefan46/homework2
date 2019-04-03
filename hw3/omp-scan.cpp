@@ -34,7 +34,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
   }
   #pragma omp barrier
   offsets[0] = 0;
-  for(int i = 1; i < N_THREAD; i++)
+  for(int i = 1; i <= N_THREAD; i++)
     offsets[i] += offsets[i - 1];
   int curOff = 0;
   int cnt = 0;
