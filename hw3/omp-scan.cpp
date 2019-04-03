@@ -70,7 +70,12 @@ int main() {
   printf("parallel-scan   = %fs\n", omp_get_wtime() - tt);
 
   long err = 0;
-  for (long i = 0; i < N; i++) err = std::max(err, std::abs(B0[i] - B1[i]));
+  for (long i = 0; i < N; i++){
+    err = std::max(err, std::abs(B0[i] - B1[i]));
+    if(err > 1)
+      printf("error idx : %ld", i);
+  }
+
   printf("error = %ld\n", err);
 
   for(long i = N - 1; i >= N - 10; i--){
