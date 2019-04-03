@@ -72,8 +72,12 @@ int main() {
   long err = 0;
   for (long i = 0; i < N; i++){
     err = std::max(err, std::abs(B0[i] - B1[i]));
-    if(std::abs(B0[i] - B1[i]) > 1)
+    if(std::abs(B0[i] - B1[i]) > 1){
       printf("error idx : %ld\n", i);
+      printf("correct number is : %ld", B0[i]);
+      printf("my number is : %ld", B1[i]);
+    }
+
   }
 
   printf("error = %ld\n", err);
