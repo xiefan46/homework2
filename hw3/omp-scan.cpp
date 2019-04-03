@@ -18,7 +18,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
   // TODO: implement multi-threaded OpenMP scan
   const int N_THREAD = 8;
   prefix_sum[0] = 0;
-  long offsets[N_THREAD];
+  long offsets[N_THREAD + 1];
   long len = n / N_THREAD;
   #pragma omp parallel num_threads(N_THREAD)
   {
@@ -29,7 +29,7 @@ void scan_omp(long* prefix_sum, const long* A, long n) {
     for(long i = startIdx + 1; i <= endIdx; i++){
       prefix_sum[i] = prefix_sum[i - 1] + A[i - 1];
     }
-    offsets[id] = prefix_sum[endIdx];
+    offsets[id + 1] = prefix_sum[endIdx];
 
   }
   #pragma omp barrier
@@ -68,13 +68,13 @@ int main() {
   for (long i = 0; i < N; i++) err = std::max(err, std::abs(B0[i] - B1[i]));
   printf("error = %ld\n", err);
 
-  for(int i = 0; i < 10; i++){
+  /*for(int i = 0; i < 10; i++){
     printf("B0 %ld\n", B0[i]);
   }
 
   for(int i = 0; i < 10; i++){
     printf("B1 %ld\n", B1[i]);
-  }
+  }*/
 
   free(A);
   free(B0);
