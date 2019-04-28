@@ -1,0 +1,11 @@
+Project: Parallel k-means clustering using CUDA
+Notice: In last week I mentioned about another topic. But later on I found that I am more interested in this topic. So I change my project idea.
+
+Date                                 Work                                                                                         Who
+4/28 — 4/30                Read books and papers to understand k-means algorithm, understand how to use CUDA                      Fan
+
+5/1 — 5/5                  Implement a basic C++ single thread version k-means and verify it.                                     Fan
+
+5/5  — 5/12                Modify the previous version to a CUDA version                                                          Fan
+
+5/12 — 5/19                Work on presentation slides and report                                                                 Fan
