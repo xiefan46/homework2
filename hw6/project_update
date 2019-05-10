@@ -1,0 +1,10 @@
+Currently progress
+
+Date                                 Work                                                                        Status
+4/28 — 4/30                Read books and papers to understand k-means algorithm, understand how to use MPI      Done
+
+5/1 — 5/5                  Implement a basic C++ single thread version k-means and verify it.                    Done
+
+5/5  — 5/12                Modify the previous version to a MPI version                                          Currently working on this part
+
+5/12 — 5/19                Work on presentation slides and report                                                Not yet start
