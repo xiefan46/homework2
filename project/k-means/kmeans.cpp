@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "mpi.h"
+#include <limits.h>
 
 using namespace std;
 
