@@ -194,6 +194,6 @@ int main(int argc, char *argv[]) {
     free(points_local);
     MPI_Finalize();
     if (rank == 0)
-        cout << "K-means Algorithm done. Time cost : " << (MPI_Wtime() - start) / 1000 << "s" << endl;
+        cout << "K-means Algorithm done. Time cost : " << (MPI_Wtime() - start)  << "s" << endl;
     return 0;
 }
