@@ -6,7 +6,6 @@
 #SBATCH --tasks-per-node 2
 #SBATCH -t 1:00:00                # time for a task
 
-# 设置运行环境
 
 module load openmpi/gnu/2.1.1
 
