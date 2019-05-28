@@ -1,13 +1,13 @@
 #!/bin/bash
 #!/bin/bash
-#SBATCH -J kmeans                   # 作业名为 test
-#SBATCH -o kmeans.out               # 屏幕上的输出文件重定向到 test.out
-#SBATCH -N 4                      # 作业申请 4 个节点
-#SBATCH --ntasks-per-node=4       # 单节点启动的进程数为 4
-#SBATCH --cpus-per-task=4         # 单任务使用的 CPU 核心数为 4
-#SBATCH -t 1:00:00                # 任务运行的最长时间为 1 小时
+#SBATCH -J kmeans                   # task name
+#SBATCH -o kmeans.out               # redirect output to test.out
+#SBATCH -N 4                    # nodes
+#SBATCH --tasks-per-node 2
+#SBATCH -t 1:00:00                # time for a task
 
 # 设置运行环境
-module load openmpi/intel/20190119
 
-mpirun -np 16 ./kmeans 100000 4
+module load openmpi/gnu/2.1.1
+
+mpirun -np 8 ./kmeans 100000 4
